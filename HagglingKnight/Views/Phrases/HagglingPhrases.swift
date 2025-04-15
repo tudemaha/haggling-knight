@@ -1,10 +1,22 @@
 import SwiftUI
 
-struct HagglingPhrases: View {    
+struct HagglingPhrases: View {
+    
+    @State private var isSheetShow = false
     var body: some View {
         ScrollView {
-            PhrasesCard()
-                .padding(.vertical, 2)
+            Button {
+                isSheetShow.toggle()
+            } label: {
+                PhrasesCard()
+                    .padding(.vertical, 2)
+            }
+            .sheet(isPresented: $isSheetShow, content: {
+                DetailModal()
+                    .presentationDetents([.fraction(0.999)])
+                    .presentationDragIndicator(.visible)
+            })
+            
             PhrasesCard()
                 .padding(.vertical, 2)
             PhrasesCard()
