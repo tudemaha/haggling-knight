@@ -34,6 +34,15 @@ struct HagglingPhrases: View {
         .background(.gray.opacity(0.1))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
+        .toolbar() {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    print("refresh")
+                }) {
+                    Image(systemName: "arrow.clockwise")
+                }
+            }
+        }
     }
 }
 

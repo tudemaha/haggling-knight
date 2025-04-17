@@ -8,13 +8,9 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationStack {
-                ZStack {
-                    Color.gray.opacity(0.1)
-                    
+                ContentBase(title: "Haggling Knight", content: {
                     Phrases()
-                }
-                .navigationTitle("Haggling Knight")
-                
+                })
             }
             .tabItem {
                 Label("Phrases", systemImage: selectedTab == 0 ? "quote.bubble.fill" : "quote.bubble")
@@ -43,6 +39,25 @@ struct ContentView: View {
             .tag(2)
         }
         .tint(.teal)
+    }
+}
+
+struct ContentBase<Content: View>: View {
+    let content: Content
+    let title: String
+    
+    init(title: String, @ViewBuilder content: () -> Content) {
+        self.content = content()
+        self.title = title
+    }
+    
+    var body: some View {
+        ZStack {
+            Color.gray.opacity(0.1)
+            
+            content
+        }
+        .navigationTitle(title)
     }
 }
 
