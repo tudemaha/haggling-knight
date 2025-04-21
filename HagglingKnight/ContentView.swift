@@ -4,6 +4,7 @@ struct ContentView: View {
     
     @State private var selectedTab: Int = 0
     @State private var isTabBarHidden = false
+    @State private var searchValue: String = ""
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -19,9 +20,11 @@ struct ContentView: View {
             .tag(0)
             
             NavigationStack {
-                Text("ini search")
-                    .navigationTitle("Price List")
+                ContentBase(title: "Price List", content: {
+                    PriceList()
+                })
             }
+            .searchable(text: $searchValue)
             .tabItem {
                 Label("Price List", systemImage: selectedTab == 1 ? "list.bullet.clipboard.fill" : "list.bullet.clipboard")
                     .environment(\.symbolVariants, .none)
