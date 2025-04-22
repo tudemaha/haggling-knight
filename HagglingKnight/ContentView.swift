@@ -9,9 +9,9 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationStack {
-                ContentBase(title: "Haggling Knight", content: {
+                ContentBase(title: "Haggling Knight") {
                     Phrases()
-                })
+                }
             }
             .tabItem {
                 Label("Phrases", systemImage: selectedTab == 0 ? "quote.bubble.fill" : "quote.bubble")
@@ -20,9 +20,9 @@ struct ContentView: View {
             .tag(0)
             
             NavigationStack {
-                ContentBase(title: "Price List", content: {
-                    PriceList()
-                })
+                ContentBase(title: "Price List") {
+                    PriceList(searchValue: searchValue)
+                }
             }
             .searchable(text: $searchValue)
             .tabItem {
@@ -32,8 +32,9 @@ struct ContentView: View {
             .tag(1)
             
             NavigationStack {
-                Text("ini saved")
-                    .navigationTitle("Saved")
+                ContentBase(title: "Saved") {
+                    Saved()
+                }
             }
             .tabItem {
                 Label("Saved", systemImage: selectedTab == 2 ? "bookmark.fill" : "bookmark")

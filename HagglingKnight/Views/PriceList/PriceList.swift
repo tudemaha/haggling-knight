@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct PriceList: View {
+    var searchValue: String
+    
     var body: some View {
         let layout = [
             GridItem(.adaptive(minimum: 100)),
@@ -8,32 +10,37 @@ struct PriceList: View {
         ]
         
         VStack(alignment: .leading, spacing: 10) {
-            Text("Categories")
-                .font(.headline)
+            if searchValue == "" {
+                Text("Categories")
+                    .font(.headline)
+            }
             
             ScrollView {
                 LazyVGrid(columns: layout) {
-                    NavigationLink {
-                        CategorizedPrice()
-                    } label: {
-                        PriceCategoryCard(imageName: "lemon", category: "Fruits")
-                    }
-                    .buttonStyle(.plain)
-                    
-                    NavigationLink {
-                        CategorizedPrice()
-                    } label: {
-                        PriceCategoryCard(imageName: "carrot", category: "Vegetables")
-                    }
-                    .buttonStyle(.plain)
+                    if searchValue != "" {
+                        PriceCard(imageName: "carrot", name: "Carrot 1 Kg", price: "15.000")
+                    } else {
+                        NavigationLink {
+                            CategorizedPrice(category: "Fruits")
+                        } label: {
+                            PriceCategoryCard(imageName: "lemon", category: "Fruits")
+                        }
+                        .buttonStyle(.plain)
+                        
+                        NavigationLink {
+                            CategorizedPrice(category: "Vegetables")
+                        } label: {
+                            PriceCategoryCard(imageName: "carrot", category: "Vegetables")
+                        }
+                        .buttonStyle(.plain)
 
-                    NavigationLink {
-                        CategorizedPrice()
-                    } label: {
-                        PriceCategoryCard(imageName: "onion", category: "Spices")
+                        NavigationLink {
+                            CategorizedPrice(category: "Spices")
+                        } label: {
+                            PriceCategoryCard(imageName: "onion", category: "Spices")
+                        }
+                        .buttonStyle(.plain)
                     }
-                    .buttonStyle(.plain)
-
                 }
             }
         }
@@ -45,5 +52,5 @@ struct PriceList: View {
 }
 
 #Preview {
-    PriceList()
+    PriceList(searchValue: "carr")
 }
