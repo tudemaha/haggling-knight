@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "image": "lemon",
+    "category_name": "Fruits"
+  },
+  {
+    "id": 2,
+    "image": "carrot",
+    "category_name": "Vegetables"
+  },
+  {
+    "id": 3,
+    "image": "onion",
+    "category_name": "Spices"
+  }
+]

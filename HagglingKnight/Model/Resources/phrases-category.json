@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "image": "haggling-phrases",
+    "title": "Haggling Phrases",
+    "active": true
+  },
+  {
+    "id": 2,
+    "image": "coming",
+    "title": "Coming Soon...",
+    "active": false
+  }
+]

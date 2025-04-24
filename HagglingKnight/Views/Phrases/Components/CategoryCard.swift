@@ -2,14 +2,13 @@ import SwiftUI
 
 struct CateogryCard: View {
     
-    var imageName: String
-    var title: String
+    var categoryDetail: PhrasesCategory
     
     var body: some View {
         NavigationLink(value: "phrases", label: {
             VStack(spacing: 15) {
                 
-                Image(imageName)
+                Image(categoryDetail.image)
                     .resizable()
                     .scaledToFill()
                     .containerRelativeFrame(.horizontal) { width, axis in
@@ -17,7 +16,7 @@ struct CateogryCard: View {
                     }
                     .padding(.top, 20)
                 
-                Text(title)
+                Text(categoryDetail.title)
                     .font(.title2.bold())
                     .foregroundStyle(.white)
                     .padding(.bottom, 20)
@@ -27,13 +26,20 @@ struct CateogryCard: View {
                     HagglingPhrases()
                 }
             }
-            .background(.teal)
+            .background(categoryDetail.active ? .teal : .gray)
             .clipShape(.rect(cornerRadius: 20))
             .shadow(color: .black.opacity(0.12), radius: 5, x: -4, y: 4)
         })
+        .disabled(categoryDetail.active ? false : true)
+    }
+    
+    init(_ categoryDetail: PhrasesCategory) {
+        self.categoryDetail = categoryDetail
     }
 }
 
 #Preview {
-    CateogryCard(imageName: "haggling-phrases", title: "Haggling Phrases")
+    CateogryCard(
+        PhrasesCategory(id: 1, image: "haggling-phrases", title: "Haggling Phrases", active: false)
+    )
 }

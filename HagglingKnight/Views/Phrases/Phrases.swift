@@ -2,6 +2,9 @@ import SwiftUI
 
 struct Phrases: View {
     @State private var index: Int = 0
+    
+    var phrasesCategory: [PhrasesCategory] = ModelData().phrasesCategory
+    
     var body: some View {
         VStack(spacing: 20) {
             Text("Hi, John Doe! Ready to Haggle?")
@@ -12,9 +15,9 @@ struct Phrases: View {
                 ScrollViewReader { proxy in
                     ScrollView(.horizontal) {
                         HStack(spacing: 60) {
-                            ForEach(0..<5, id: \.self) {i in
-                                CateogryCard(imageName: "haggling-phrases", title: "Haggling Phrases")
-                                    .id(i)
+                            ForEach(phrasesCategory) {phraseCategory in
+                                CateogryCard(phraseCategory)
+                                    .id(phraseCategory.id)
                             }
                         }
                         .padding(.horizontal, 50)
@@ -29,7 +32,7 @@ struct Phrases: View {
                 
                 HStack {
                     CircleButton(index: $index, label: "Previous", icon: "chevron.left")
-                        .disabled(index == 0 ? true : false)
+                        .disabled(index == 1 ? true : false)
                     
                     Spacer()
                         .containerRelativeFrame(.horizontal) { width, axis in
@@ -37,7 +40,7 @@ struct Phrases: View {
                         }
                     
                     CircleButton(index: $index, label: "Next", icon: "chevron.right")
-                        .disabled(index == 4 ? true : false)
+                        .disabled(index == phrasesCategory.count ? true : false)
                 }
                 .padding(.horizontal, 5)
             }

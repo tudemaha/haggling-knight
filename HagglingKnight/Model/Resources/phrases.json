@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "phrase": "Bisa kurang?",
+    "translate": "Can it be cheaper?",
+    "meaning": "Used to ask the seller for a lower prices.",
+    "example": ["Apakah harganya bisa kurang?", "Can the price be lower?"],
+    "category_id": 1,
+    "audio": "1.mp3",
+    "saved": false
+  },
+  {
+    "id": 2,
+    "phrase": "Ini berapa?",
+    "translate": "How much is this?",
+    "meaning": "Ask the seller about the price of a thing.",
+    "example": ["Ini berapa harganya?", "How much does it cost?"],
+    "category_id": 1,
+    "audio": "2.mp3",
+    "saved": false
+  },
+  {
+    "id": 3,
+    "phrase": "Terlalu mahal.",
+    "translate": "It's too expensive.",
+    "meaning": "Tell the sellers if the price they give is too high.",
+    "example": ["Dagingnya terlalu mahal.", "The meat is too expensive."],
+    "category_id": 1,
+    "audio": "3.mp3",
+    "saved": true
+  },
+  {
+    "id": 4,
+    "phrase": "Kasi lebih murah.",
+    "translate": "Give me the lower price.",
+    "meaning": "Ask the seller to give you lower price.",
+    "example": ["Tolong kasi lebih murah.", "Give me the lower price, please."],
+    "category_id": 1,
+    "audio": "4.mp3",
+    "saved": false
+  },
+  {
+    "id": 5,
+    "phrase": "Mahal banget.",
+    "translate": "So expensive.",
+    "meaning": "Tell the sellers if the price they give is so high.",
+    "example": ["Wortelnya mahal banget.", "The carrots are so expensive."],
+    "category_id": 1,
+    "audio": "5.mp3",
+    "saved": false
+  },
+  {
+    "id": 6,
+    "phrase": "Dua X ribu.",
+    "translate": "Two for X thousand.",
+    "meaning": "Ask seller to give you 2 things with the same price (X ribu)",
+    "example": ["Jeruknya dua X ribu, ya.", "2 oranges for X thousand, okay."],
+    "category_id": 1,
+    "audio": "6.mp3",
+    "saved": true
+  },
+  {
+    "id": 7,
+    "phrase": "Saya ambil X ribu.",
+    "translate": "I bought it for X thousand.",
+    "meaning": "Bid for the lower price.",
+    "example": ["Saya ambil X ribu, Bu", "I bought it for X thousand, Mam."],
+    "category_id": 1,
+    "audio": "7.mp3",
+    "saved": true
+  }
+]
