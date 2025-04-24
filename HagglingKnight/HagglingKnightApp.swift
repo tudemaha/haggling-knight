@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct HagglingKnightApp: App {
+    
+    init() {
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .systemTeal
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
