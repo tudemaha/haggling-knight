@@ -3,6 +3,7 @@ import SwiftUI
 struct HagglingPhrases: View {
     
     @State private var isSheetShow = false
+    
     var body: some View {
         ScrollView {
             Button {
@@ -33,7 +34,6 @@ struct HagglingPhrases: View {
         .navigationTitle("Haggling Phrases")
         .background(.gray.opacity(0.1))
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar(.hidden, for: .tabBar)
         .toolbar() {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {

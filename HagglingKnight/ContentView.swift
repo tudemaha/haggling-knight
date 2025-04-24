@@ -3,16 +3,17 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var selectedTab: Int = 0
-    @State private var isTabBarHidden = false
     @State private var searchValue: String = ""
+    @State private var phrasesPath: NavigationPath = NavigationPath()
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            NavigationStack {
+            NavigationStack(path: $phrasesPath) {
                 ContentBase(title: "Haggling Knight") {
                     Phrases()
                 }
             }
+            .toolbar(phrasesPath.isEmpty ? .visible : .hidden, for: .tabBar)
             .tabItem {
                 Label("Phrases", systemImage: selectedTab == 0 ? "quote.bubble.fill" : "quote.bubble")
                     .environment(\.symbolVariants, .none)

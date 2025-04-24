@@ -20,7 +20,7 @@ struct Phrases: View {
                         .padding(.horizontal, 50)
                     }
                     .scrollIndicators(.hidden)
-                    .onChange(of: index) { oldValue, newValue in
+                    .onChange(of: index) { _, newValue in
                         withAnimation {
                             proxy.scrollTo(newValue, anchor: .center)
                         }
