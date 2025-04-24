@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CateogryCard: View {
     
-    var categoryDetail: PhrasesCategory
+    var categoryDetail: PhraseCategory
     
     var body: some View {
         NavigationLink(value: "phrases", label: {
@@ -33,13 +33,13 @@ struct CateogryCard: View {
         .disabled(categoryDetail.active ? false : true)
     }
     
-    init(_ categoryDetail: PhrasesCategory) {
+    init(_ categoryDetail: PhraseCategory) {
         self.categoryDetail = categoryDetail
     }
 }
 
 #Preview {
     CateogryCard(
-        PhrasesCategory(id: 1, image: "haggling-phrases", title: "Haggling Phrases", active: false)
+        PhraseCategory(id: 1, image: "haggling-phrases", title: "Haggling Phrases", active: false)
     )
 }

@@ -3,7 +3,7 @@ import SwiftUI
 struct Phrases: View {
     @State private var index: Int = 0
     
-    var phrasesCategory: [PhraseCategory] = ModelData().phrasesCategory
+    var phraseCategories: [PhraseCategory] = ModelData().phraseCategories
     
     var body: some View {
         VStack(spacing: 20) {
@@ -15,7 +15,7 @@ struct Phrases: View {
                 ScrollViewReader { proxy in
                     ScrollView(.horizontal) {
                         HStack(spacing: 60) {
-                            ForEach(phrasesCategory) {phraseCategory in
+                            ForEach(phraseCategories) {phraseCategory in
                                 CateogryCard(phraseCategory)
                                     .id(phraseCategory.id)
                             }
@@ -40,7 +40,7 @@ struct Phrases: View {
                         }
                     
                     CircleButton(index: $index, label: "Next", icon: "chevron.right")
-                        .disabled(index == phrasesCategory.count ? true : false)
+                        .disabled(index == phraseCategories.count ? true : false)
                 }
                 .padding(.horizontal, 5)
             }
