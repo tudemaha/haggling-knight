@@ -3,7 +3,7 @@ import SwiftUI
 struct Phrases: View {
     @State private var index: Int = 0
     
-    var phrasesCategory: [PhrasesCategory] = ModelData().phrasesCategory
+    var phrasesCategory: [PhraseCategory] = ModelData().phrasesCategory
     
     var body: some View {
         VStack(spacing: 20) {
