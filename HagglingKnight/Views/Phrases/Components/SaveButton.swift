@@ -22,7 +22,7 @@ struct SaveButton: View {
                 filteredPhrases.append(currentPhrase[0])
                 print(filteredPhrases)
                 save(filteredPhrases, to: "phrases.json")
-                
+                // simulation purpose
                 isSaved.toggle()
             } else {
                 showAlert = true
@@ -51,6 +51,8 @@ struct SaveButton: View {
                 filteredPhrases.append(currentPhrase[0])
                 print(filteredPhrases)
                 save(filteredPhrases, to: "phrases.json")
+                // simulation purpose
+                isSaved.toggle()
             }
         }
         .onAppear {
