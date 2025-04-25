@@ -29,3 +29,21 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) a \(T.self):\n\(error)")
     }
 }
+
+func save<T: Encodable>(_ object: T, to filename: String) {
+    let encoder = JSONEncoder()
+    encoder.outputFormatting = .prettyPrinted
+    
+    do {
+        let data = try encoder.encode(object)
+        
+        let fileURL = FileManager.default
+            .urls(for: .documentDirectory, in: .userDomainMask)[0]
+            .appendingPathComponent(filename)
+        
+        try data.write(to: fileURL)
+        print("Saved to: \(fileURL.path)")
+    } catch {
+        fatalError("Failed to save \(filename)")
+    }
+}

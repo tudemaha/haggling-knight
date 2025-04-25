@@ -25,7 +25,7 @@ struct PhrasesCard: View {
             Spacer()
             
             HStack(spacing: 8) {
-                SaveButton(isSaved: $isSaved)
+                SaveButton(isSaved: $isSaved, phraseId: phrase.id)
                 VoiceButton()
             }
         }

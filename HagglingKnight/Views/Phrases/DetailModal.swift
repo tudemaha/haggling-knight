@@ -35,7 +35,7 @@ struct DetailModal: View {
                 Spacer()
                 
                 HStack(spacing: 30) {
-                    SaveButton(isSaved: $isSaved)
+                    SaveButton(isSaved: $isSaved, phraseId: phrase.id)
                     
                     VoiceButton()
                 }

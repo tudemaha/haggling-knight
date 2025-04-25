@@ -1,11 +1,19 @@
 import SwiftUI
 
 struct Saved: View {
+    
+    var savedPhrases: [Phrase] {
+        ModelData().phrases.filter {phrase in
+            phrase.saved
+        }
+    }
+    
     var body: some View {
         ScrollView {
             Spacer()
-            PhrasesCard(ModelData().phrases[0])
-
+            ForEach(savedPhrases) { phrase in
+                PhrasesCard(phrase)
+            }
         }
     }
 }
