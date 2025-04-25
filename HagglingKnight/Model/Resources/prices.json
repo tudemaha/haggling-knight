@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "image": "sweet-corn",
+    "name": "Sweet Corn 1 Kg",
+    "price": "11.000",
+    "category_id": 2
+  },
+  {
+    "id": 2,
+    "image": "japanese-spinach",
+    "name": "Japanese Spinach",
+    "price": "21.000",
+    "category_id": 2
+  },
+  {
+    "id": 3,
+    "image": "cabbage",
+    "name": "Cabbage 500g",
+    "price": "10.770",
+    "category_id": 2
+  },
+  {
+    "id": 4,
+    "image": "indramayu-mango",
+    "name": "Indramayu Mango 1kg",
+    "price": "35.000",
+    "category_id": 1
+  },
+  {
+    "id": 5,
+    "image": "kintamani-orange",
+    "name": "Kintamani Orange 1kg",
+    "price": "18.000",
+    "category_id": 1
+  },
+  {
+    "id": 6,
+    "image": "sunkist-orange",
+    "name": "Sunkist Orange 1kg",
+    "price": "35.000",
+    "category_id": 1
+  },
+  {
+    "id": 7,
+    "image": "brebes-onion",
+    "name": "Onion 1kg",
+    "price": "50.160",
+    "category_id": 3
+  },
+  {
+    "id": 8,
+    "image": "orange-leaves",
+    "name": "Orange Leaves 25g",
+    "price": "2.720",
+    "category_id": 3
+  },
+  {
+    "id": 9,
+    "image": "garlic",
+    "name": "Garlic 1kg",
+    "price": "49.500",
+    "category_id": 3
+  }
+]

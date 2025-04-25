@@ -3,6 +3,9 @@ import SwiftUI
 struct PriceList: View {
     var searchValue: String
     
+    var priceCategories = ModelData().priceCategories
+    var prices = ModelData().prices
+    
     var body: some View {
         let layout = [
             GridItem(.adaptive(minimum: 100)),
@@ -18,28 +21,22 @@ struct PriceList: View {
             ScrollView {
                 LazyVGrid(columns: layout) {
                     if searchValue != "" {
-                        PriceCard(imageName: "carrot", name: "Carrot 1 Kg", price: "15.000")
-                    } else {
-                        NavigationLink {
-                            CategorizedPrice(category: "Fruits")
-                        } label: {
-                            PriceCategoryCard(imageName: "lemon", category: "Fruits")
+                        let searchResult = prices.filter {price in
+                            price.name.contains(searchValue)
                         }
-                        .buttonStyle(.plain)
                         
-                        NavigationLink {
-                            CategorizedPrice(category: "Vegetables")
-                        } label: {
-                            PriceCategoryCard(imageName: "carrot", category: "Vegetables")
+                        ForEach(searchResult) {result in
+                            PriceCard(imageName: result.image, name: result.name, price: result.price)
                         }
-                        .buttonStyle(.plain)
-
-                        NavigationLink {
-                            CategorizedPrice(category: "Spices")
-                        } label: {
-                            PriceCategoryCard(imageName: "onion", category: "Spices")
+                    } else {
+                        ForEach(priceCategories) {priceCategory in
+                            NavigationLink {
+                                CategorizedPrice(categoryName: priceCategory.category_name, categoryId: priceCategory.id)
+                            } label: {
+                                PriceCategoryCard(imageName: priceCategory.image, category: priceCategory.category_name)
+                            }
+                            .buttonStyle(.plain)
                         }
-                        .buttonStyle(.plain)
                     }
                 }
             }

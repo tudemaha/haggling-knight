@@ -4,6 +4,8 @@ import Foundation
 class ModelData {
     var phraseCategories: [PhraseCategory] = load("phrases-category.json")
     var phrases: [Phrase] = load("phrases.json")
+    var priceCategories: [PriceCategory] = load("price-category.json")
+    var prices: [Price] = load("prices.json")
 }
 
 func load<T: Decodable>(_ filename: String) -> T {
