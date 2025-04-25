@@ -2,34 +2,30 @@ import SwiftUI
 
 struct HagglingPhrases: View {
     
-    @State private var isSheetShow = false
+    @State private var selectedPhrase: Phrase? = nil
+    @State private var filteredPhrases: [Phrase] = []
+
+    var phraseCategoryID: Int
     
     var body: some View {
         ScrollView {
-            Button {
-                isSheetShow.toggle()
-            } label: {
-                PhrasesCard()
-                    .padding(.vertical, 2)
+            ForEach(filteredPhrases) { phrase in
+                Button {
+                    selectedPhrase = phrase
+                } label: {
+                    PhrasesCard(phrase)
+                        .padding(.vertical, 2)
+                }
             }
-            .sheet(isPresented: $isSheetShow, content: {
-                DetailModal()
-                    .presentationDetents([.fraction(0.999)])
-                    .presentationDragIndicator(.visible)
-            })
-            
-            PhrasesCard()
-                .padding(.vertical, 2)
-            PhrasesCard()
-                .padding(.vertical, 2)
-            PhrasesCard()
-                .padding(.vertical, 2)
-            PhrasesCard()
-                .padding(.vertical, 2)
-            PhrasesCard()
-                .padding(.vertical, 2)
-            PhrasesCard()
-                .padding(.vertical, 2)
+        }
+        .onAppear {
+            filteredPhrases = ModelData().phrases
+                .filter { $0.category_id == phraseCategoryID }
+        }
+        .sheet(item: $selectedPhrase) { phrase in
+            DetailModal(phrase)
+                .presentationDetents([.fraction(0.999)])
+                .presentationDragIndicator(.visible)
         }
         .navigationTitle("Haggling Phrases")
         .background(.gray.opacity(0.1))
@@ -37,15 +33,18 @@ struct HagglingPhrases: View {
         .toolbar() {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    print("refresh")
+                    filteredPhrases = filteredPhrases.shuffled()
                 }) {
                     Image(systemName: "arrow.clockwise")
                 }
             }
         }
     }
+    init(_ phraseCategoryID: Int) {
+        self.phraseCategoryID = phraseCategoryID
+    }
 }
 
 #Preview {
-    HagglingPhrases()
+    HagglingPhrases(1)
 }

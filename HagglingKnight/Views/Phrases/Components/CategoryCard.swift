@@ -23,7 +23,7 @@ struct CateogryCard: View {
             }
             .navigationDestination(for: String.self) { value in
                 if value == "phrases" {
-                    HagglingPhrases()
+                    HagglingPhrases(categoryDetail.id)
                 }
             }
             .background(categoryDetail.active ? .teal : .gray)
@@ -39,7 +39,5 @@ struct CateogryCard: View {
 }
 
 #Preview {
-    CateogryCard(
-        PhraseCategory(id: 1, image: "haggling-phrases", title: "Haggling Phrases", active: false)
-    )
+    CateogryCard(ModelData().phraseCategories[0])
 }

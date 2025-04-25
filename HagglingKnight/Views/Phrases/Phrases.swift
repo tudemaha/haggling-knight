@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct Phrases: View {
-    @State private var index: Int = 0
+    @State private var index: Int = 1
     
     var phraseCategories: [PhraseCategory] = ModelData().phraseCategories
     
@@ -32,7 +32,7 @@ struct Phrases: View {
                 
                 HStack {
                     CircleButton(index: $index, label: "Previous", icon: "chevron.left")
-                        .disabled(index == 1 ? true : false)
+                        .disabled(index <= 1 ? true : false)
                     
                     Spacer()
                         .containerRelativeFrame(.horizontal) { width, axis in
@@ -40,7 +40,7 @@ struct Phrases: View {
                         }
                     
                     CircleButton(index: $index, label: "Next", icon: "chevron.right")
-                        .disabled(index == phraseCategories.count ? true : false)
+                        .disabled(index >= phraseCategories.count ? true : false)
                 }
                 .padding(.horizontal, 5)
             }

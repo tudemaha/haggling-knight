@@ -4,9 +4,8 @@ struct Saved: View {
     var body: some View {
         ScrollView {
             Spacer()
-            PhrasesCard()
-            PhrasesCard()
-            PhrasesCard()
+            PhrasesCard(ModelData().phrases[0])
+
         }
     }
 }

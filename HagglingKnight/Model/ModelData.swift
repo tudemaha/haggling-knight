@@ -3,6 +3,7 @@ import Foundation
 @Observable
 class ModelData {
     var phraseCategories: [PhraseCategory] = load("phrases-category.json")
+    var phrases: [Phrase] = load("phrases.json")
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

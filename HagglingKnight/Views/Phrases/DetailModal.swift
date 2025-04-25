@@ -3,7 +3,8 @@ import SwiftUI
 struct DetailModal: View {
     @Environment(\.dismiss) var dismiss
     
-    @State private var isSaved = false
+    @State private var isSaved: Bool
+    var phrase: Phrase
     
     var body: some View {
         NavigationStack {
@@ -11,22 +12,22 @@ struct DetailModal: View {
                 Spacer()
                 Spacer()
                 
-                Text("Bisa Kurang?")
+                Text(phrase.phrase)
                     .font(.title.bold())
                     .foregroundStyle(.teal)
                 
-                Text("Can it be cheaper?")
+                Text(phrase.translate)
                     .font(.title3.bold())
                     .foregroundColor(.hkGray)
                 
-                Text("Used to ask the seller for a lower prices.")
+                Text(phrase.meaning)
                     .font(.subheadline)
                     .foregroundColor(.hkGray)
                 
                 VStack(spacing: 4) {
                     Text("Example:")
-                    Text("Apakah harganya bisa kurang?")
-                    Text("Can the price be lower?")
+                    Text(phrase.example[0])
+                    Text(phrase.example[1])
                 }
                 .font(.subheadline)
                 .foregroundColor(.hkGray)
@@ -59,8 +60,13 @@ struct DetailModal: View {
             }
         }
     }
+    init(_ phrase: Phrase) {
+        self.phrase = phrase
+        print(self.phrase.id)
+        _isSaved = State(initialValue: phrase.saved)
+    }
 }
 
 #Preview {
-    DetailModal()
+    DetailModal(ModelData().phrases[1])
 }
